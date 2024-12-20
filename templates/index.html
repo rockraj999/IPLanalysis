@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IPL esb Application</title>
+    <style>
+        .right-align {
+            display: flex;
+            justify-content: flex-end; /* Aligns content to the right */
+            margin: 20px; /* Adds some spacing around the form */
+        }
+
+    </style>
+</head>
+<body>
+
+
+<h1>Team Vs Team</h1>
+<div class="right-align">
+        <form action="/">
+
+            <input type="submit" value="Home">
+
+        </form>
+</div>
+<form action="/teamvteam" method="get">
+    <label>Select Team1  </label>
+    <select name="team1">
+        {% for item in teams %}
+        <option value="{{ item }}">{{ item }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    <label>Select Team2  </label>
+    <select name="team2">
+        {% for item in teams %}
+        <option value="{{ item }}">{{ item }}</option>
+        {% endfor %}
+    </select><br><br>
+
+
+    <input type="submit" value="Find Track Record">
+
+</form>
+
+{% if result %}
+
+    {% for i in result %}
+        <p>{{ i }} : {{ result[i] }}</p>
+    {% endfor %}
+{% endif %}
+
+</body>
+</html>
